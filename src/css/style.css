@@ -1,3 +1,5 @@
+/*/ Work environment equipment /*/
+
 :root {
   --main-color: #009ad3;
   --main-color-transparent: #009bd350;
@@ -33,17 +35,23 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 0 0;
-  position: relative;
 }
 a {
   text-decoration: none;
   color: azure;
 }
 
-/* header */
+/* ------------------------------------------------ */
+/* ================================================ */
+/* ------------------------------------------------ */
+
+/*/ ======================== /*/
+/*/ ======== Header ======== /*/
+/*/ ======================== /*/
 
 header {
+  display: flex;
+  align-items: center;
   box-shadow: 0px 10px 10px -10px #333;
   position: fixed;
   height: 80px;
@@ -65,7 +73,7 @@ header {
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
 }
-header .container {
+header .details {
   background-color: transparent;
   display: flex;
   justify-content: space-between;
@@ -108,14 +116,25 @@ header nav ul li:hover::before {
   width: 100%;
 }
 
-main #home .container {
+/* ------------------------------------------------ */
+/* ================================================ */
+/* ------------------------------------------------ */
+
+/*/ ====================== /*/
+/*/ ======== Home ======== /*/
+/*/ ====================== /*/
+
+main #home {
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+main #home .details {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 200px;
 }
-
 main #home .personal-image {
   position: relative;
   max-width: 400px;
@@ -162,7 +181,13 @@ main #home .overview button:active {
   background-color: #0b6a8d;
 }
 
-/* ---------------------------- */
+/* ------------------------------------------------ */
+/* ================================================ */
+/* ------------------------------------------------ */
+
+/*/ ========================= /*/
+/*/ ======== Heading ======== /*/
+/*/ ========================= /*/
 
 .heading {
   margin: 0 auto;
@@ -191,17 +216,21 @@ main #home .overview button:active {
   box-shadow: 0 -5px 10px 2px #009ad3;
 }
 
-main #about,
-main #services,
-main #portfolio,
-main #contact {
+/* ------------------------------------------------ */
+/* ================================================ */
+/* ------------------------------------------------ */
+
+/*/ =============================== /*/
+/*/ ======== About ======== /*/
+/*/ =============================== /*/
+
+main #about {
   padding: 100px 0;
 }
-main #about,
-main #portfolio {
+main #about {
   background-color: #333;
 }
-main #about .container {
+main #about .details {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -314,28 +343,47 @@ main #about .cards .card span {
   font-size: 30px;
 }
 
-/* ---------------------------- */
+/* ------------------------------------------------ */
+/* ================================================ */
+/* ------------------------------------------------ */
 
-main #services .container .cards {
+/*/ ========================== /*/
+/*/ ======== Services ======== /*/
+/*/ ========================== /*/
+
+main #services {
+  padding: 100px 0;
+}
+main #services .details .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 40px;
   text-align: center;
   color: #aaa;
 }
-main #services .container .cards .card .icon {
+main #services .details .cards .card .icon {
   color: var(--main-color);
   font-size: 30px;
   margin-bottom: 30px;
 }
-main #services .container .cards .card h4 {
+main #services .details .cards .card h4 {
   color: #ffffff;
   font-size: 25px;
   margin-bottom: 10px;
 }
 
-/* ---------------------------- */
+/* ------------------------------------------------ */
+/* ================================================ */
+/* ------------------------------------------------ */
 
+/*/ =========================== /*/
+/*/ ======== Portfolio ======== /*/
+/*/ =========================== /*/
+
+main #portfolio {
+  padding: 100px 0;
+  background-color: #333;
+}
 main #portfolio .container .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -395,26 +443,36 @@ main #portfolio .container .cards .card button:active {
   background-color: #0b6a8d;
 }
 
-/* ---------------------------- */
+/* ------------------------------------------------ */
+/* ================================================ */
+/* ------------------------------------------------ */
 
-main #contact .container {
+/*/ =============================== /*/
+/*/ ======== Contact ======== /*/
+/*/ =============================== /*/
+
+main #contact {
+  padding: 100px 0;
+}
+
+main #contact .details {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: column-reverse;
+  /* flex-direction: column-reverse; */
   gap: 50px;
 }
 
 main #contact .container .links {
-  width: 600px;
+  max-width: 500px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
 }
 .emailandphone {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 50px;
 }
 .email,
@@ -472,6 +530,7 @@ main #contact .container .form {
   justify-content: center;
   flex-direction: column;
   max-width: 600px;
+  flex-grow: 1;
 }
 main #contact .container .form input,
 textarea {
@@ -503,7 +562,13 @@ main #contact .container .form input.submit {
   width: 150px;
 }
 
-/* ---------------------------- */
+/* ------------------------------------------------ */
+/* ================================================ */
+/* ------------------------------------------------ */
+
+/*/ ======================== /*/
+/*/ ======== Footer ======== /*/
+/*/ ======================== /*/
 
 footer {
   color: #aaa;
@@ -512,9 +577,21 @@ footer {
   text-align: center;
 }
 
-/* ---------------------------- */
+/* ------------------------------------------------ */
+/* ================================================ */
+/* ------------------------------------------------ */
 
-@media screen and (max-width: 790px) {
+/*/ =============================== /*/
+/*/ ======== Media queries ======== /*/
+/*/ =============================== /*/
+
+@media (min-width: 340px) and (max-width: 767px) {
+  .container {
+    width: calc(100% - 100px);
+  }
+  header {
+    padding: 0;
+  }
   header nav ul {
     display: none;
   }
@@ -531,31 +608,74 @@ footer {
   .bars p:not(:last-child) {
     margin-bottom: 7px;
   }
-  main #home .container {
-    flex-direction: column;
-    min-height: 1000px;
-    padding: 100px;
+
+  .heading {
+    font-size: 40px;
   }
-  main #about .container {
-    flex-direction: column;
-    min-height: 1000px;
-    padding: 100px;
+
+  /*/ ================== /*/
+  /*/ ================== /*/
+
+  main #home {
+    padding: 100px 0;
   }
-  body {
-    overflow-x: hidden;
+  main #home .details {
+    padding: 50px 0 0;
+    flex-direction: column-reverse;
+    gap: 100px;
   }
-}
-@media screen and (max-width: 1250px) {
-  .container {
-    padding: 0 40px;
-  }
-  header .container {
-    height: 100%;
-  }
-  main #contact .container .form {
-    width: 100%;
+
+  /*/ ================== /*/
+  /*/ ================== /*/
+
+  main #about .details {
+    gap: 100px;
   }
   main #about .details {
+    flex-direction: column;
+  }
+
+  main #portfolio {
+    padding: 100px 0;
+  }
+  main #portfolio .container .cards {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  main #contact .container .form {
     width: 100%;
+    max-width: 400px;
+  }
+  main #contact .details {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: calc(100% - 100px);
+  }
+  main #home .details,
+  main #about .details {
+    gap: 100px;
+  }
+  main #about .details {
+    flex-direction: column;
+  }
+  main #contact .container .form {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1120px) {
+  main #home .details,
+  main #about .details {
+    gap: 200px;
+  }
+  main #about .details {
+    flex-direction: row;
+  }
+  main #contact .container .form {
+    max-width: 600px;
   }
 }
