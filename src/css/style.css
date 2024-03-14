@@ -109,7 +109,7 @@ header nav ul li:hover::before {
 }
 
 main #home .container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -275,9 +275,10 @@ main #about h4 {
   margin-bottom: 20px;
 }
 .list {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 20px;
+  text-align: center;
 }
 .list p {
   font-size: 45px;
@@ -290,8 +291,10 @@ main #about h4 {
 }
 
 main #about .cards {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+  text-align: center;
 }
 main #about .cards .card {
   background-color: var(--main-color-transparent);
@@ -468,7 +471,7 @@ main #contact .container .form {
   align-items: end;
   justify-content: center;
   flex-direction: column;
-  width: 600px;
+  max-width: 600px;
 }
 main #contact .container .form input,
 textarea {
@@ -511,8 +514,48 @@ footer {
 
 /* ---------------------------- */
 
-@media screen and (max-width: 768px) {
-  nav {
+@media screen and (max-width: 790px) {
+  header nav ul {
     display: none;
+  }
+  .bars p {
+    background-color: white;
+    height: 2px;
+    width: 30px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+  .bars p:not(:last-child) {
+    margin-bottom: 7px;
+  }
+  main #home .container {
+    flex-direction: column;
+    min-height: 1000px;
+    padding: 100px;
+  }
+  main #about .container {
+    flex-direction: column;
+    min-height: 1000px;
+    padding: 100px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .container {
+    padding: 0 40px;
+  }
+  header .container {
+    height: 100%;
+  }
+  main #contact .container .form {
+    width: 100%;
+  }
+  main #about .details {
+    width: 100%;
   }
 }
